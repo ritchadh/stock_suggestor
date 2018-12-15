@@ -1,0 +1,26 @@
+{
+  "Ethical Investing" : ["Gilead Sciences","Google","Nestle","Adobe"],
+  "Growth Investing" : ["Amazon","Carvana","Canopy Growth Corp","TriNet Group"],
+  "Index Investing" : ["Nuveen Equity Index","Invesco S&P 500 Index Fund","Deutsche S&P 500 Index Fund","Wells Fargo Index"],
+  "Quality Investing" : ["Enterprise Products Partners L.P.","Public Storage","Schlumberger Ltd."],
+  "Value Investing" : ["Apple","ON Semiconductor","Google"],
+
+  "Gilead Sciences" : "GILD",
+  "Google" : "GOOGL",
+  "Nestle" : "NSRGY",
+  "Adobe" : "ADBE",
+  "Amazon" : "AMZN",
+  "Carvana" : "CVNA",
+  "Canopy Growth Corp" : "CGC",
+  "TriNet Group" : "TNET",
+  "Nuveen Equity Index" : "FCEIX",
+  "Invesco S&P 500 Index Fund" : "SPICX",
+  "Deutsche S&P 500 Index Fund" : "SXPCX",
+  "Wells Fargo Index" : "WFINX",
+  "Enterprise Products Partners L.P." : "EPD",
+  "Public Storage" : "PSA",
+  "Schlumberger Ltd." : "SLB",
+  "Apple" : "AAPL",
+  "ON Semiconductor" : "ON"
+
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display Strategies</title>
+  </head>
+
+  <body>
+    <h2>Choose 1 or 2 Strategies</h2>
+
+    <form action="/stocks" method="post" name ="stocks">
+
+      Investment Amount<input type="text" name="Amount"></input><br>
+      
+      {% for strategy in strategies %}
+      <input type="checkbox" name="strategies" value="{{strategy}}">
+      {% endfor %}
+
+      <input type="submit" value="Submit"><br><br>
+    
+
+    </form>
+
+  </body>
+</html>
