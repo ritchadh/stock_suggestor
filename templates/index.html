@@ -9,10 +9,10 @@
 
     <form action="/stocks" method="post" name ="stocks">
 
-      Investment Amount<input type="text" name="Amount"></input><br>
+      Investment Amount: <input type="text" name="Amount"></input><br>
       
       {% for strategy in strategies %}
-      <input type="checkbox" name="strategies" value="{{strategy}}">
+      <input type="checkbox" name="strategies" value="{{strategy}}">{{strategy}}</br></br>
       {% endfor %}
 
       <input type="submit" value="Submit"><br><br>

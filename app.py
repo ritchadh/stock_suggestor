@@ -3,11 +3,10 @@ from flask import Flask, render_template, request, redirect
 import requests
 from iexfinance import Stock
 import datetime
-import stocks 
 import json
 
 with open('stocks.json') as f:
-    data = json.loads(f)
+    data = json.load(f)
 
 app = Flask(__name__)
 
@@ -31,13 +30,35 @@ def display_strategies():
 def display_stocks():
     stocks = []
     userAmount = request.form['Amount']
+    print(userAmount)
     strategiesPicked = request.form.getlist("strategies")
+    print(strategiesPicked)
     s =  Stock(userAmount,strategiesPicked)
 
-    for s in strategiesPicked:s
+    for s in strategiesPicked:
         stocks.append(data[s])
 
-    return render_template('displayStock.html', stocks = stocks)
+    stocks_list = [item for sublist in stocks for item in sublist]
+    print(stocks_list)
+    
+    # Find the change percent for all the stocks 
+    stock_dict = {}
+
+    for stock in stocks_list:
+        ticker_symbol = data[stock]
+        now = datetime.datetime.now()
+        current_datetime = str(now.month)+" "+str(now.day)+" "+str(now.hour)+":"+str(now.minute)+":"+str(now.second)+" "+str(now.year)
+        stock_info = requests.get('https://api.iextrading.com/1.0/stock/'+ticker_symbol+'/quote')
+
+        if stock_info.status_code == 200:
+            json_data = stock_info.json()
+            changePercent = json_data['changePercent']
+            stock_dict[stock] = changePercent
+        
+        else:
+            print("Error: API not reachable!!")
+
+    print(stock_dict)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=3000)
